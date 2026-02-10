@@ -1,0 +1,9 @@
+{
+  "frontend/src/index.css": "Global styles with romantic pink and white OKLCH color palette, custom Google Fonts (Pacifico and Quicksand), and base Tailwind configuration for the Valentine's theme.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic fonts (Pacifico, Quicksand), pink-themed colors, custom shadows, and heart animation keyframes for the Valentine's aesthetic.",
+  "frontend/src/App.tsx": "Main application component managing state between the Valentine prompt and success meme views, with decorative floating hearts background and footer attribution.",
+  "frontend/src/components/ValentinePrompt.tsx": "Interactive Valentine question card with fixed \"Yes\" button and evasive \"No\" button that moves away on hover/touch, featuring romantic styling with hearts and shadows.",
+  "frontend/src/components/SuccessMeme.tsx": "Success state component displaying the \"Good choice\" meme image with celebratory hearts, sparkles, and animated decorative elements.",
+  "frontend/src/hooks/useEvasiveNoButton.ts": "Custom hook implementing the evasive button logic that calculates safe random positions within container bounds while avoiding overlap with the Yes button, supporting both hover and touch interactions with nullable ref types.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for React Query hooks (empty as no backend queries are needed for this static page)."
+}

@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no implemented logic.",
+  "feature_evidence.json": "Metadata listing implemented features, associated files, components, and test IDs for the Valentine app.",
+  "frontend-file-summaries.txt": "Prewritten summaries of key frontend files for reference or documentation.",
+  "frontend/index.css": "Tailwind base setup defining color variables and theming for light and dark modes.",
+  "frontend/index.html": "Basic HTML entry file loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Root React component toggling between the Valentine prompt and success meme with decorative background.",
+  "frontend/src/components/SuccessMeme.tsx": "Success screen showing a themed meme and animated hearts after the user selects Yes.",
+  "frontend/src/components/ValentinePrompt.tsx": "Main prompt UI with a fixed Yes button and evasive No button driven by a custom hook.",
+  "frontend/src/hooks/useActor.ts": "React Query hook creating and refreshing a backend actor based on identity state.",
+  "frontend/src/hooks/useEvasiveNoButton.ts": "Logic for generating safe random positions for the evasive No button on hover/touch.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for managing Internet Identity login state using Dfinity AuthClient, including loading, login, logout, and status flags.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder exporting nothing, indicating no backend queries are needed.",
+  "frontend/src/index.css": "Defines Tailwind base layers and custom romantic-themed color variables, fonts, and global styles.",
+  "frontend/src/main.tsx": "Entry point that mounts the React app with React Query and InternetIdentityProvider wrappers.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom colors, fonts, animations, and plugins for the romantic theme.",
+  "project_state.json": "Stores project metadata, feature definitions, requirements, and current state for a romantic Valentine web page."
+}

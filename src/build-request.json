@@ -1,0 +1,133 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine proposal page with evasive No button and Yes-triggered meme",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page interactive Valentine prompt that asks the user (girlfriend) to be the user’s Valentine, with two visible options: “Yes” and “No”, using English for all user-facing text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create an interactive web page as a surprise for my girlfriend... ask her to be my Valentine.\nThere should be two options: Yes or No."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page displays a clear question asking the user to be the Valentine.",
+        "Two buttons are present and labeled exactly “Yes” and “No”.",
+        "All visible text is in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement evasive behavior for the “No” button: on hover (and on touch interaction equivalents for iPad), the “No” button should move to a new position within the viewport/container such that it is difficult/impossible to click, while keeping the UI responsive and not moving off-screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hovering over the “No” button causes it to move away before a click can be completed.",
+        "On iPad/Chrome, the “No” button also evades touch interactions (e.g., on touchstart/pointerdown) in a comparable way.",
+        "The “No” button remains visible (does not end up off-screen) and does not overlap the “Yes” button permanently."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user clicks “Yes”, transition the page into a success state that shows a meme image with the caption text “Good choice”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she clicks Yes, show her a meme image telling her\n\"Good choice"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” reliably replaces or overlays the initial prompt with a success view.",
+        "The success view displays the meme image and the exact text “Good choice”.",
+        "After clicking “Yes”, the “No” option is no longer presented as an actionable choice (e.g., hidden/disabled/removed)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a consistent romantic visual theme using a pink and white color scheme, with a simple, polished layout suitable for iPad Chrome (responsive, readable typography, and touch-friendly sizing).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "The page should be themed romantically with a pink and white color scheme... easily run it on my iPad using Chrome."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary palette is pink and white; the UI reads clearly with sufficient contrast.",
+        "Layout adapts to common iPad viewport sizes without overflowing or requiring horizontal scrolling.",
+        "Buttons are large enough to tap comfortably on a touchscreen."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Establish a cohesive, creative visual direction for the page (e.g., romantic card / scrapbook aesthetic) and apply it consistently across spacing, typography, and decorative elements without adding additional product features beyond the Valentine prompt interaction.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page uses a single coherent style (typography, borders/shadows, background accents) that feels intentionally designed.",
+        "No extra features are introduced beyond the Valentine question, Yes/No interaction, and the Yes success/meme state."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add the required generated image(s) as static frontend assets under frontend/public/assets/generated and render them directly from the frontend (not via the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated image files exist under frontend/public/assets/generated with the specified filenames.",
+        "The “Yes” success state loads the meme image from the static assets path and displays it correctly in the UI."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend files under the immutable paths listed in SYSTEM_CONTEXT must not be edited; compose around them instead.",
+    "Do not add or require third-party auth providers or external services.",
+    "Keep the solution as a simple single-page experience; no backend functionality is required for the described behavior."
+  ],
+  "nonGoals": [
+    "Implementing Internet Identity sign-in or any user accounts.",
+    "Adding messaging, email, push notifications, or social sharing.",
+    "Adding additional pages, navigation, or features beyond the Valentine prompt and its interactions."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Romantic meme image with playful hearts and bold caption text “Good choice” (valentine-good-choice-meme.dim_1200x800.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

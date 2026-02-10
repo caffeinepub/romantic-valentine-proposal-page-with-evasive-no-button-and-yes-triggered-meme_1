@@ -1,0 +1,75 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T20:15:07.592Z",
+  "summary": "Core Valentine prompt, evasive “No” behavior, and a “Yes” success state with “Good choice” text are implemented, but the diff violates the exact “Yes” label requirement, does not show the required static meme image file being added under the specified public assets path, and introduces unrequested Internet Identity/auth plumbing and other extra elements.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Two buttons are present and labeled exactly “Yes” and “No”.",
+      "reason": "The “Yes” button label is not exactly “Yes”; it includes extra punctuation/emoji.",
+      "evidence": [
+        "frontend/src/components/ValentinePrompt.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Add the required generated image file under frontend/public/assets/generated with filename valentine-good-choice-meme.dim_1200x800.png.",
+      "reason": "The UI references the image at /assets/generated/valentine-good-choice-meme.dim_1200x800.png, but the diff summary does not show the actual image file being added under frontend/public/assets/generated.",
+      "evidence": [
+        "frontend/src/components/SuccessMeme.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication provider and actor/query plumbing (AuthClient, InternetIdentityProvider, useActor) added despite non-goal of Internet Identity sign-in and the request for a simple single-page experience.",
+      "reason": "BuildRequest explicitly lists implementing Internet Identity sign-in/user accounts as non-goals and says no backend functionality is required for the described behavior, but auth/actor infrastructure is included and wired into the app.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Backend canister stub (backend/main.mo) added even though no backend functionality is required.",
+      "reason": "BuildRequest states no backend functionality is required for the described behavior; adding a backend actor is not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Footer attribution with an external link to caffeine.ai added.",
+      "reason": "BuildRequest non-goals specify no additional features beyond the Valentine prompt and its interactions; a promotional/footer link is an extra element not requested.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "External Google Fonts import added via CSS (@import from fonts.googleapis.com).",
+      "reason": "BuildRequest constraints say not to add or require external services; loading fonts from Google is an external network dependency not mentioned in the request.",
+      "evidence": [
+        "frontend/src/index.css"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/SuccessMeme.tsx",
+    "frontend/src/components/ValentinePrompt.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useEvasiveNoButton.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

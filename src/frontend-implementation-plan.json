@@ -1,0 +1,146 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Single-page Valentine prompt with evasive No and Yes success meme",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement a single-page Valentine prompt with an English question and two buttons labeled exactly “Yes” and “No”.",
+      "acceptanceCriteria": [
+        "The page displays a clear question asking the user to be the Valentine.",
+        "Two buttons are present and labeled exactly “Yes” and “No”.",
+        "All visible text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page React view that renders the Valentine question and two buttons labeled exactly “Yes” and “No”, using English-only user-facing text. If using shadcn-ui for the buttons/layout, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ValentinePrompt.tsx",
+          "operation": "create",
+          "description": "Extract the prompt UI (question + Yes/No choices) into a dedicated component used by App to keep the single-page structure clean. If using shadcn-ui components (e.g., Button/Card) for consistent styling, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Verify the app renders the newly created App component without additional navigation/pages; keep the experience single-page as required (no new routes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add evasive behavior to the “No” button on hover and touch/pointer interactions, keeping it on-screen and not permanently overlapping “Yes”.",
+      "acceptanceCriteria": [
+        "Hovering over the “No” button causes it to move away before a click can be completed.",
+        "On iPad/Chrome, the “No” button also evades touch interactions (e.g., on touchstart/pointerdown) in a comparable way.",
+        "The “No” button remains visible (does not end up off-screen) and does not overlap the “Yes” button permanently."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useEvasiveNoButton.ts",
+          "operation": "create",
+          "description": "Implement a reusable hook that computes safe random positions for the “No” button within a container/viewport, clamps to bounds so it stays visible, and avoids persistent overlap with the “Yes” button region; support pointer events for iPad (pointerenter/pointerdown/touchstart equivalents)."
+        },
+        {
+          "path": "frontend/src/components/ValentinePrompt.tsx",
+          "operation": "modify",
+          "description": "Wire the evasive logic to the “No” button (hover + pointer/touch interactions) and render the “No” button using positioning that allows movement within a bounded container while remaining responsive. If using shadcn-ui Button, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure the prompt container establishes a reliable positioning context (e.g., relative container) for evasive movement and that the “Yes” button remains consistently tappable/visible while the “No” button moves."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On “Yes” click, transition to a success state showing the meme image and the exact caption “Good choice”, with “No” no longer actionable.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” reliably replaces or overlays the initial prompt with a success view.",
+        "The success view displays the meme image and the exact text “Good choice”.",
+        "After clicking “Yes”, the “No” option is no longer presented as an actionable choice (e.g., hidden/disabled/removed)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SuccessMeme.tsx",
+          "operation": "create",
+          "description": "Create a success-state component that displays the meme image and the exact caption text “Good choice”. If using shadcn-ui Card/Typography utilities for polished presentation, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add UI state to switch between the initial prompt and the success view on “Yes” click; ensure the “No” button is not rendered (or otherwise not actionable) after success."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a romantic pink-and-white theme with a polished, responsive, touch-friendly layout for iPad Chrome.",
+      "acceptanceCriteria": [
+        "Primary palette is pink and white; the UI reads clearly with sufficient contrast.",
+        "Layout adapts to common iPad viewport sizes without overflowing or requiring horizontal scrolling.",
+        "Buttons are large enough to tap comfortably on a touchscreen."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind base/styles and define global CSS variables/theme tokens to achieve a pink-and-white romantic palette with readable contrast; keep typography responsive and touch-friendly sizing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply responsive layout and spacing (single-page centered card/layout, readable type scale, large tap targets) suitable for iPad Chrome, staying within the pink/white theme. If using shadcn-ui layout primitives, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Establish and consistently apply a cohesive creative direction (romantic card/scrapbook aesthetic) without adding extra features beyond the required interactions.",
+      "acceptanceCriteria": [
+        "The page uses a single coherent style (typography, borders/shadows, background accents) that feels intentionally designed.",
+        "No extra features are introduced beyond the Valentine question, Yes/No interaction, and the Yes success/meme state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ValentinePrompt.tsx",
+          "operation": "modify",
+          "description": "Refine the prompt styling to match a consistent romantic card/scrapbook aesthetic (cohesive typography, borders/shadows, subtle decorative accents) without introducing additional features or interactions beyond Yes/No and evasive No behavior."
+        },
+        {
+          "path": "frontend/src/components/SuccessMeme.tsx",
+          "operation": "modify",
+          "description": "Match the success view styling to the same cohesive aesthetic (consistent spacing/typography/decorative elements) while keeping the feature set limited to the meme + “Good choice” caption."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust any global theme tokens needed to keep the aesthetic consistent across both states (prompt and success) while maintaining readability and responsiveness."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add the required generated meme image as a static asset under frontend/public/assets/generated and render it directly in the success view.",
+      "acceptanceCriteria": [
+        "Generated image files exist under frontend/public/assets/generated with the specified filenames.",
+        "The “Yes” success state loads the meme image from the static assets path and displays it correctly in the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static image asset file at the exact path: frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/src/components/SuccessMeme.tsx",
+          "operation": "modify",
+          "description": "Render the success meme image by referencing the static asset at frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x800.png and display the exact caption text “Good choice”."
+        }
+      ]
+    }
+  ]
+}

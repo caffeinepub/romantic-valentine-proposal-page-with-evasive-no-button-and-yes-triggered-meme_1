@@ -1,0 +1,121 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-interactive-valentine-prompt-that-asks-the-user-girlfriend-to-be-the-user-s-valentine-with-two-visible-options-yes-and-no-using-english-for-all-user-facing-text",
+      "featureTitle": "Create a single-page interactive Valentine prompt that asks the user (girlfriend) to be the user’s Valentine, with two visible options: “Yes” and “No”, using English for all user-facing text.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ValentinePrompt.tsx",
+        "frontend/src/main.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-evasive-behavior-for-the-no-button-on-hover-and-on-touch-interaction-equivalents-for-ipad-the-no-button-should-move-to-a-new-position-within-the-viewport-container-such-that-it-is-difficult-impossible-to-click-while-keeping-the-ui-responsive-and-not-moving-off-screen",
+      "featureTitle": "Implement evasive behavior for the “No” button: on hover (and on touch interaction equivalents for iPad), the “No” button should move to a new position within the viewport/container such that it is difficult/impossible to click, while keeping the UI responsive and not moving off-screen.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ValentinePrompt.tsx",
+        "frontend/src/hooks/useEvasiveNoButton.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-the-user-clicks-yes-transition-the-page-into-a-success-state-that-shows-a-meme-image-with-the-caption-text-good-choice",
+      "featureTitle": "When the user clicks “Yes”, transition the page into a success state that shows a meme image with the caption text “Good choice”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SuccessMeme.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-romantic-visual-theme-using-a-pink-and-white-color-scheme-with-a-simple-polished-layout-suitable-for-ipad-chrome-responsive-readable-typography-and-touch-friendly-sizing",
+      "featureTitle": "Apply a consistent romantic visual theme using a pink and white color scheme, with a simple, polished layout suitable for iPad Chrome (responsive, readable typography, and touch-friendly sizing).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-establish-a-cohesive-creative-visual-direction-for-the-page-e-g-romantic-card-scrapbook-aesthetic-and-apply-it-consistently-across-spacing-typography-and-decorative-elements-without-adding-additional-product-features-beyond-the-valentine-prompt-interaction",
+      "featureTitle": "Establish a cohesive, creative visual direction for the page (e.g., romantic card / scrapbook aesthetic) and apply it consistently across spacing, typography, and decorative elements without adding additional product features beyond the Valentine prompt interaction.",
+      "files": [
+        "frontend/src/components/SuccessMeme.tsx",
+        "frontend/src/components/ValentinePrompt.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-image-s-as-static-frontend-assets-under-frontend-public-assets-generated-and-render-them-directly-from-the-frontend-not-via-the-backend",
+      "featureTitle": "Add the required generated image(s) as static frontend assets under frontend/public/assets/generated and render them directly from the frontend (not via the backend).",
+      "files": [
+        "frontend/src/components/SuccessMeme.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
